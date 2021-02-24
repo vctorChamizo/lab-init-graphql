@@ -5,8 +5,16 @@
   "repository": "git@github.com:vctorChamizo/lab-init-graphql.git",
   "author": "vctorChamizo <victor.chamizo96@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "build-watch": "tsc -w",
+    "dev": "nodemon --exec ts-node src/app.ts"
+  },
   "dependencies": {
     "apollo-server": "^2.21.0",
-    "graphql": "^15.5.0"
+    "graphql": "^15.5.0",
+    "ts-node": "^9.1.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.2"
   }
 }
