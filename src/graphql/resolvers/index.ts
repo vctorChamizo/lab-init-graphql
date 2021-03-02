@@ -1,14 +1,16 @@
-// import { addTask, tasks, task } from "./Task";
+import { addTask, tasks, task } from "./Task";
 
-// const Query = {
-//   // task
-//   tasks: tasks,
-//   task: task,
-// };
+const Query = {
+  // task
+  tasks,
+  task,
+};
 
-// const Mutation = {
-//   // task
-//   addTask: addTask,
-// };
+const Mutation = {
+  // task
+  addTask,
+};
 
-// export const resolvers = { Query, Mutation };
+const resolvers = { Query, Mutation };
+
+export default resolvers;
