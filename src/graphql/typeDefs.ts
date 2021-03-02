@@ -12,8 +12,9 @@ const typeDefs = gql`
   ## QUERY
   type Query {
     # task
-    tasks: [Task]!
+    tasks: [Task!]!
     task(id: Int!): Task
+    hello: String!
   }
 
   ## MUTATION

@@ -4,6 +4,7 @@ const Query = {
   // task
   tasks,
   task,
+  hello: () => "Hello Wolrd!",
 };
 
 const Mutation = {
