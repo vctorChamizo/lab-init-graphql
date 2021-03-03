@@ -1,6 +1,6 @@
 import { ITask } from "@interfaces";
 
-import { taskCollection } from "../../../data/task";
+import { taskCollection } from "../../../sample/task";
 
 export const addTask = (_: any, args: any) => {
   const { name, description, completed } = args;

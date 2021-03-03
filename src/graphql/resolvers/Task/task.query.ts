@@ -1,5 +1,5 @@
 import { ITask } from "@interfaces";
-import { taskCollection } from "../../../data/task";
+import { taskCollection } from "../../../sample/task";
 
 export const tasks = (): ITask[] => taskCollection;
 
