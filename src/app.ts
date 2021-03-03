@@ -1,5 +1,6 @@
 import express from "express";
-import { ApolloServer, gql } from "apollo-server-express";
+import { ApolloServer } from "apollo-server-express";
+import logger from "@log";
 
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/typeDefs";
@@ -16,7 +17,7 @@ const server = new ApolloServer({
 server.applyMiddleware({ app, path: API_URL });
 
 app.listen(PORT, () => {
-  console.log(
+  logger.error(
     `GraphQL Server running at http://localhost:${PORT}${server.graphqlPath}`
   );
 });
