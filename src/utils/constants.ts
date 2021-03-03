@@ -17,3 +17,9 @@ export const API_URL = process.env.API_URL || "/api";
 // Database
 export const DB_HOST_MONGODB = process.env.DB_HOST_MONGODB;
 export const DB_NAME_MONGODB = process.env.DB_NAME_MONGODB;
+
+// Password
+export const SALT_ROUNDS = process.env.SALT_ROUNDS;
+
+// JWT
+export const JWT_SECRET = process.env.JWT_SECRET;

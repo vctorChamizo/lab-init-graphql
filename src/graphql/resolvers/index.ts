@@ -1,3 +1,5 @@
+import { GraphQLDateTime } from "graphql-iso-date";
+
 import { addTask, tasks, task } from "./Task";
 
 const Query = {
@@ -11,6 +13,6 @@ const Mutation = {
   addTask,
 };
 
-const resolvers = { Query, Mutation };
+const resolvers = { Query, Mutation, DateTime: GraphQLDateTime };
 
 export default resolvers;
