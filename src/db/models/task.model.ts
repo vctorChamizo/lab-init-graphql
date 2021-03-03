@@ -1,5 +1,7 @@
 import { Schema, model } from "mongoose";
 
+import { ITaskModel } from "@interfaces";
+
 const TaskSchema = new Schema(
   {
     name: {
@@ -20,4 +22,4 @@ const TaskSchema = new Schema(
   }
 );
 
-export const TaskModel = model("Task", TaskSchema);
+export const TaskModel = model<ITaskModel>("Task", TaskSchema);

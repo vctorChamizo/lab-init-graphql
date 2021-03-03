@@ -6,21 +6,20 @@ const typeDefs = gql`
     id: ID!
     name: String!
     description: String!
-    completed: Boolean!
+    completed: Boolean
   }
 
   ## QUERY
   type Query {
     # task
     tasks: [Task!]!
-    task(id: Int!): Task
-    hello: String!
+    task(id: ID!): Task
   }
 
   ## MUTATION
   type Mutation {
     # task
-    addTask(name: String!, description: String!, completed: Boolean!): Task!
+    addTask(name: String!, description: String!, completed: Boolean): Task!
   }
 `;
 

@@ -1,1 +1,1 @@
-export { ITask } from "./task";
+export { ITask, ITaskData, ITaskModel } from "./task";

@@ -1,18 +1,17 @@
-import { ITask } from "@interfaces";
+import { ITaskData } from "@interfaces";
+import { TaskModel } from "../../../db/models";
 
-import { taskCollection } from "../../../sample/task";
+export const addTask = async (_: any, args: any) => {
+  try {
+    const { name, description } = args;
 
-export const addTask = (_: any, args: any) => {
-  const { name, description, completed } = args;
+    const task: ITaskData = {
+      name: name,
+      description: description,
+    };
 
-  const newTask: ITask = {
-    id: taskCollection.length + 1,
-    name: name,
-    description: description,
-    completed: completed,
-  };
-
-  taskCollection.push(newTask); // In a real enviroment -> provision database
-
-  return newTask;
+    return await new TaskModel(task).save();
+  } catch (error) {
+    throw error;
+  }
 };
