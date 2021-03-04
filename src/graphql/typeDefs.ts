@@ -19,18 +19,18 @@ const typeDefs = gql`
     username: String!
     email: String!
     avatar: String
-    notes: [Task!]
+    notes: [String!]
   }
 
   ## QUERY
   type Query {
     # task
-    tasks: [Task!]!
-    task(id: ID!): Task
+    findTasksQuery: [Task!]!
+    findTaskByIdQuery(id: ID!): Task
 
     # user
-    users: [Task!]!
-    user(id: ID!): Task
+    findUsersQuery: [User!]!
+    findUserByIdQuery(id: ID!): User
   }
 
   ## MUTATION
@@ -40,14 +40,18 @@ const typeDefs = gql`
     signIn(username: String, email: String, password: String!): String!
 
     # task
-    addTask(name: String!, description: String!, completed: Boolean): Task!
+    addTaskMutation(
+      name: String!
+      description: String!
+      completed: Boolean
+    ): Task!
 
     # user
-    addUser(
+    addUserMutation(
       username: String!
       email: String!
       avatar: String
-      notes: [Task!]
+      notes: [String!]
     ): User!
   }
 `;

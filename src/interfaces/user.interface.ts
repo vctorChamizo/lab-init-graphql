@@ -6,19 +6,20 @@ export interface IUser {
   username: string;
   email: string;
   avatar?: string;
-  notes: ITask[];
+  notes?: string[];
 }
 
 export interface IUserData {
   username: string;
   email: string;
   avatar?: string;
-  notes: ITask[];
+  notes?: string[];
 }
 
 export interface IUserModel extends Document {
+  id: string;
   username: string;
   email: string;
   avatar?: string;
-  notes: ITask[];
+  notes?: string[];
 }

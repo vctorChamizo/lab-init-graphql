@@ -14,7 +14,7 @@ export interface ITaskData {
 }
 
 export interface ITaskModel extends Document {
-  id: number;
+  id: string;
   name: string;
   description: string;
   completed?: boolean;

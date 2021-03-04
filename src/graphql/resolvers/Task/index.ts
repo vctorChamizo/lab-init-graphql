@@ -1,2 +1,2 @@
-export { addTask } from "./task.mutation";
-export { tasks, task } from "./task.query";
+export { addTaskMutation } from "./task.mutation";
+export { findTasksQuery, findTaskByIdQuery } from "./task.query";

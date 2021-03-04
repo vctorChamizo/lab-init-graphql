@@ -1,17 +1,8 @@
-import { ITaskData } from "@interfaces";
-import { TaskModel } from "../../../db/models";
+import { ITask } from "@interfaces";
+import { addTaskService } from "../../../service";
 
-export const addTask = async (_: any, args: any) => {
-  try {
-    const { name, description } = args;
-
-    const task: ITaskData = {
-      name: name,
-      description: description,
-    };
-
-    return await new TaskModel(task).save();
-  } catch (error) {
-    throw error;
-  }
+export const addTaskMutation = async (_: any, args: any) => {
+  const { name, description }: { name: string; description: string } = args;
+  const newTask: ITask = await addTaskService(name, description);
+  return newTask;
 };

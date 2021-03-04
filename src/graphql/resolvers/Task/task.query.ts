@@ -1,19 +1,20 @@
-import { ITaskModel } from "@interfaces";
-import { TaskModel } from "../../../db/models";
+import { ITask } from "@interfaces";
+import { findTaskByIdService, findTasksService } from "../../../service";
 
-export const tasks = async (): Promise<ITaskModel[]> => {
+export const findTasksQuery = async () => {
   try {
-    return await TaskModel.find();
+    const taskCollection: ITask[] = await findTasksService();
+    return taskCollection;
   } catch (error) {
     throw error;
   }
 };
 
-export const task = async (_: any, args: any): Promise<ITaskModel | null> => {
+export const findTaskByIdQuery = async (_: any, args: any) => {
   try {
     const { id } = args;
-
-    return await TaskModel.findOne({ _id: id });
+    const task: ITask | null = await findTaskByIdService(id);
+    return task;
   } catch (error) {
     throw error;
   }
