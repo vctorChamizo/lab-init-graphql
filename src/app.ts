@@ -5,7 +5,7 @@ import logger from "@log";
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/typeDefs";
 import * as database from "./db/connector";
-import * as models from "./db/models";
+import context from "./context";
 
 import { PORT, API_URL } from "@constants";
 
@@ -17,9 +17,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   playground: true,
-  context: () => {
-    return { models };
-  },
+  context,
 });
 
 server.applyMiddleware({ app, path: API_URL });

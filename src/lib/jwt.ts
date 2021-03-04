@@ -6,6 +6,6 @@ export const generateJWT = async (id: string): Promise<string> => {
   return await jwt.sign({ id }, JWT_SECRET);
 };
 
-export const validateJWT = async (token: string): Promise<boolean> => {
+export const validateJWT = async (token: string) => {
   return await jwt.verify(token, JWT_SECRET);
 };

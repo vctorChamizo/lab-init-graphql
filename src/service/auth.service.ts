@@ -4,7 +4,7 @@ import { AuthError } from "@enums";
 import { IUser, IUserAuth } from "@interfaces";
 import { signUpIntegration, signInIntegration } from "../integration";
 import { encryptPassword, comparePassword } from "../lib/hash";
-import { generateJWT } from "../lib/jwt";
+import { generateJWT, validateJWT } from "../lib/jwt";
 
 export const signUpService = async (
   username: string,
@@ -58,4 +58,12 @@ export const signInService = async (
   }
 
   return await generateJWT(user.id);
+};
+
+export const getUserByToken = async (token: string) => {
+  try {
+    return await validateJWT(token);
+  } catch (error) {
+    return null;
+  }
 };
