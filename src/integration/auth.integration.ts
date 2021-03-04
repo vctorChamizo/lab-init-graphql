@@ -1,7 +1,7 @@
-import { IUserData, IUser } from "@interfaces";
+import { IUserAuth, IUser } from "@interfaces";
 import { UserModel } from "../db/models";
 
-export const signUpIntegration = async (user: IUserData): Promise<IUser> => {
+export const signUpIntegration = async (user: IUserAuth): Promise<IUser> => {
   try {
     return new UserModel(user).save();
   } catch (error) {
@@ -9,4 +9,13 @@ export const signUpIntegration = async (user: IUserData): Promise<IUser> => {
   }
 };
 
-export const signInIntegration = async () => {};
+export const signInIntegration = async (
+  email: string,
+  username: string
+): Promise<IUser | null> => {
+  try {
+    return UserModel.findOne({ $or: [{ email }, { username }] });
+  } catch (error) {
+    throw error;
+  }
+};

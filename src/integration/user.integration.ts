@@ -1,4 +1,4 @@
-import { IUserData, IUserModel, IUser } from "@interfaces";
+import { IUserAuth, IUserModel, IUser } from "@interfaces";
 import { UserModel } from "../db/models";
 
 export const findUserByIdIntegration = async (

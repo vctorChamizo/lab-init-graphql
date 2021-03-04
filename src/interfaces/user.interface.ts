@@ -4,10 +4,11 @@ export interface IUser {
   id: string;
   username: string;
   email: string;
-  token?: string;
+  password: string;
+  token: string;
 }
 
-export interface IUserData {
+export interface IUserAuth {
   username: string;
   email: string;
   password: string;
@@ -18,5 +19,5 @@ export interface IUserModel extends Document {
   username: string;
   email: string;
   password: string;
-  token?: string;
+  token: string;
 }
