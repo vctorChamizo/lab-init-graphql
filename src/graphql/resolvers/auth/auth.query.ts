@@ -6,5 +6,5 @@ export const signInMutation = async (_: any, args: any) => {
     email,
     password,
   }: { username: string; email: string; password: string } = args;
-  return await signInService(password, username, email);
+  return await signInService(username, email, password);
 };

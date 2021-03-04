@@ -5,6 +5,9 @@ import { findUsersQuery, findUserByIdQuery } from "./user";
 import { signUpMutation, signInMutation } from "./auth";
 
 const Query = {
+  // auth
+  signInMutation,
+
   // task
   findTasksQuery,
   findTaskByIdQuery,
@@ -17,7 +20,6 @@ const Query = {
 const Mutation = {
   // auth
   signUpMutation,
-  signInMutation,
 
   // task
   addTaskMutation,

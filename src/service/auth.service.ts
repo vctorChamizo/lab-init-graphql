@@ -48,7 +48,7 @@ export const signInService = async (
   const user: IUser | null = await signInIntegration(email, username);
 
   if (!user) {
-    throw new AuthenticationError(AuthError.USER_EXISTS);
+    throw new AuthenticationError(AuthError.BAD_CREDENTIALS);
   }
 
   const isValidatePassword = comparePassword(password, user.password);
@@ -57,5 +57,5 @@ export const signInService = async (
     throw new AuthenticationError(AuthError.BAD_CREDENTIALS);
   }
 
-  return user.token;
+  return await generateJWT(user.id);
 };

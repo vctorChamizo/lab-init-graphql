@@ -24,6 +24,9 @@ const typeDefs = gql`
 
   ## QUERY
   type Query {
+    #auth
+    signInMutation(username: String, email: String, password: String!): String!
+
     # task
     findTasksQuery: [Task!]!
     findTaskByIdQuery(id: ID!): Task
@@ -37,7 +40,6 @@ const typeDefs = gql`
   type Mutation {
     #auth
     signUpMutation(username: String!, email: String!, password: String!): User
-    signInMutation(username: String, email: String, password: String!): String
 
     # task
     addTaskMutation(
