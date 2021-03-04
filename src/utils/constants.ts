@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === Enviroments.PRODUCTION) {
 }
 
 // Enviroment
+export const API_HOST = process.env.API_HOST || "http://localhost";
 export const PORT = process.env.PORT || "4000";
 export const API_URL = process.env.API_URL || "/api";
 

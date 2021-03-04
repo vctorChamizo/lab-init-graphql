@@ -7,7 +7,7 @@ import typeDefs from "./graphql/typeDefs";
 import * as database from "./db/connector";
 import context from "./context";
 
-import { PORT, API_URL } from "@constants";
+import { API_HOST, PORT, API_URL } from "@constants";
 
 const app = express();
 
@@ -24,6 +24,6 @@ server.applyMiddleware({ app, path: API_URL });
 
 app.listen(PORT, () => {
   logger.info(
-    `GraphQL Server running at http://localhost:${PORT}${server.graphqlPath}`
+    `GraphQL Server running at ${API_HOST}:${PORT}${server.graphqlPath}`
   );
 });
