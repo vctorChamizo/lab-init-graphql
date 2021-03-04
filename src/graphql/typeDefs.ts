@@ -18,8 +18,8 @@ const typeDefs = gql`
     id: ID!
     username: String!
     email: String!
-    avatar: String
-    notes: [String!]
+    password: String!
+    token: String!
   }
 
   ## QUERY
@@ -36,8 +36,8 @@ const typeDefs = gql`
   ## MUTATION
   type Mutation {
     #auth
-    signUp(username: String!, email: String!, password: String!): String!
-    signIn(username: String, email: String, password: String!): String!
+    signUpMutation(username: String!, email: String!, password: String!): User
+    signInMutation(username: String, email: String, password: String!): String
 
     # task
     addTaskMutation(
@@ -45,14 +45,6 @@ const typeDefs = gql`
       description: String!
       completed: Boolean
     ): Task!
-
-    # user
-    addUserMutation(
-      username: String!
-      email: String!
-      avatar: String
-      notes: [String!]
-    ): User!
   }
 `;
 

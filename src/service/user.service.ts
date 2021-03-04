@@ -1,23 +1,5 @@
-import { IUserData, IUser, ITask } from "@interfaces";
-import {
-  addUserIntegration,
-  findUsersIntegration,
-  findUserByIdIntegration,
-} from "../integration";
-
-export const addUserService = async (
-  username: string,
-  email: string,
-  avatar: string,
-  notes: string[]
-): Promise<IUser> => {
-  try {
-    const user: IUserData = { username, email, avatar, notes };
-    return addUserIntegration(user);
-  } catch (error) {
-    throw error;
-  }
-};
+import { IUser } from "@interfaces";
+import { findUsersIntegration, findUserByIdIntegration } from "../integration";
 
 export const findUsersService = async (): Promise<IUser[]> => {
   try {

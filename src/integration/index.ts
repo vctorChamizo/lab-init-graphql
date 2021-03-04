@@ -5,7 +5,7 @@ export {
 } from "./task.integration";
 
 export {
-  addUserIntegration,
   findUserByIdIntegration,
   findUsersIntegration,
 } from "./user.integration";
+export { signUpIntegration, signInIntegration } from "./auth.integration";

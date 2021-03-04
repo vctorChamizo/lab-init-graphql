@@ -3,8 +3,5 @@ export {
   findTaskByIdService,
   findTasksService,
 } from "./task.service";
-export {
-  addUserService,
-  findUserByIdService,
-  findUsersService,
-} from "./user.service";
+export { findUserByIdService, findUsersService } from "./user.service";
+export { signUpService, signInService } from "./auth.service";

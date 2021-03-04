@@ -1,1 +1,2 @@
-export { signUp, signIn } from "./auth.mutation";
+export { signUpMutation } from "./auth.mutation";
+export { signInMutation } from "./auth.query";

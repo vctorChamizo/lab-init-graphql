@@ -1,8 +1,8 @@
 import { GraphQLDateTime } from "graphql-iso-date";
 
 import { addTaskMutation, findTasksQuery, findTaskByIdQuery } from "./task";
-import { addUserMutation, findUsersQuery, findUserByIdQuery } from "./user";
-import { signUp, signIn } from "./auth";
+import { findUsersQuery, findUserByIdQuery } from "./user";
+import { signUpMutation, signInMutation } from "./auth";
 
 const Query = {
   // task
@@ -16,14 +16,11 @@ const Query = {
 
 const Mutation = {
   // auth
-  signUp,
-  signIn,
+  signUpMutation,
+  signInMutation,
 
   // task
   addTaskMutation,
-
-  // user
-  addUserMutation,
 };
 
 const resolvers = { Query, Mutation, DateTime: GraphQLDateTime };
