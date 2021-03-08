@@ -1,0 +1,9 @@
+mutation {
+  addTaskMutation(
+    name: "TaskTest"
+    description: "Description test"
+    completed: false
+  ) {
+    name
+  }
+}

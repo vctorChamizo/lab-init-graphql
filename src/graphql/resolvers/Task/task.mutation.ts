@@ -1,18 +1,8 @@
 import { ITask } from "@interfaces";
+import { addTaskService } from "../../../service";
 
-import { taskCollection } from "../../../data/task";
-
-export const addTask = (_: any, args: any) => {
-  const { name, description, completed } = args;
-
-  const newTask: ITask = {
-    id: taskCollection.length + 1,
-    name: name,
-    description: description,
-    completed: completed,
-  };
-
-  taskCollection.push(newTask); // In a real enviroment -> provision database
-
+export const addTaskMutation = async (_: any, args: any) => {
+  const { name, description }: { name: string; description: string } = args;
+  const newTask: ITask = await addTaskService(name, description);
   return newTask;
 };

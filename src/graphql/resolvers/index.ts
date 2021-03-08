@@ -1,17 +1,9 @@
-import { addTask, tasks, task } from "./Task";
+import { merge } from "lodash";
 
-const Query = {
-  // task
-  tasks,
-  task,
-  hello: () => "Hello Wolrd!",
-};
+import { userResolver } from "./user";
+import { authResolver } from "./auth";
+import { taskResolver } from "./task";
 
-const Mutation = {
-  // task
-  addTask,
-};
-
-const resolvers = { Query, Mutation };
+const resolvers = merge(userResolver, authResolver, taskResolver);
 
 export default resolvers;

@@ -1,7 +1,21 @@
 import { ITask } from "@interfaces";
-import { taskCollection } from "../../../data/task";
+import { findTaskByIdService, findTasksService } from "../../../service";
 
-export const tasks = (): ITask[] => taskCollection;
+export const findTasksQuery = async () => {
+  try {
+    const taskCollection: ITask[] = await findTasksService();
+    return taskCollection;
+  } catch (error) {
+    throw error;
+  }
+};
 
-export const task = (_: any, args: any) =>
-  taskCollection.find((task) => task.id == args.id);
+export const findTaskByIdQuery = async (_: any, args: any) => {
+  try {
+    const { id } = args;
+    const task: ITask | null = await findTaskByIdService(id);
+    return task;
+  } catch (error) {
+    throw error;
+  }
+};

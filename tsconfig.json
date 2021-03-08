@@ -9,6 +9,7 @@
     "outDir": "dist",
     "paths": {
       "@constants": ["utils/constants"],
+      "@enums": ["enums"],
       "@interfaces": ["interfaces/index"],
       "@log": ["lib/log"]
     }
