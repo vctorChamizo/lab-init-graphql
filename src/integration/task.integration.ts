@@ -1,4 +1,4 @@
-import { ITaskData, ITaskModel, ITask } from "@interfaces";
+import { ITaskData, ITaskModel } from "@interfaces";
 import { TaskModel } from "../db/models";
 
 export const addTaskIntegration = async (

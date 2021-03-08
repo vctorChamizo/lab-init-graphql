@@ -60,10 +60,16 @@ export const signInService = async (
   return await generateJWT(user.id);
 };
 
-export const getUserByToken = async (token: string) => {
-  try {
-    return await validateJWT(token);
-  } catch (error) {
-    return null;
-  }
+export const getUserByToken = async (token: string): Promise<IUser> => {
+  await validateJWT(token);
+
+  const newUser: IUser = {
+    id: "resultUser.id",
+    username: "resultUser.username",
+    email: "resultUser.email",
+    password: "resultUser.password",
+    token,
+  };
+
+  return await newUser;
 };

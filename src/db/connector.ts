@@ -4,7 +4,7 @@ import logger from "@log";
 import { DB_HOST_MONGODB, DB_NAME_MONGODB } from "@constants";
 import { DatabaseStatus } from "@enums";
 
-const connect = async () => {
+const connect = async (): Promise<void> => {
   try {
     await mongoose.connect(`${DB_HOST_MONGODB}${DB_NAME_MONGODB}`, {
       useUnifiedTopology: true,
@@ -21,7 +21,7 @@ const connect = async () => {
   }
 };
 
-const disconnect = async () => {
+const disconnect = async (): Promise<void> => {
   if (mongoose.connection.readyState !== DatabaseStatus.CONNECTED) return;
 
   try {

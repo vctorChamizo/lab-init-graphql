@@ -1,20 +1,22 @@
-import { IUser } from "@interfaces";
+import { Request } from "express";
+
+import { IUser, IContext } from "@interfaces";
 import { authContext } from "./auth.context";
 
-const handleContext = async ({ req }: { req: any }) => {
+const handleContext = async ({
+  req,
+}: {
+  req: Request;
+}): Promise<IContext | unknown> => {
   let context = {};
 
   const token: string | undefined = req.headers.authorization;
 
   if (token) {
-    const user: IUser | null | undefined = await authContext(token);
+    const user: IUser | null = await authContext(token);
 
-    if (user) {
-      context = { ...context, user };
-    }
+    context = { ...context, user };
   }
-
-  console.log(context);
 
   return context;
 };
