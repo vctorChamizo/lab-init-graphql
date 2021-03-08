@@ -6,6 +6,4 @@ import { taskResolver } from "./task";
 
 const resolvers = merge(userResolver, authResolver, taskResolver);
 
-console.log(resolvers);
-
 export default resolvers;

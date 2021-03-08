@@ -1,9 +1,9 @@
 import express from "express";
-import { ApolloServer } from "apollo-server-express";
+import { ApolloServer, makeExecutableSchema } from "apollo-server-express";
 import logger from "@log";
 
 import resolvers from "./graphql/resolvers";
-import typeDefs from "./graphql/typeDefs";
+import typeDefs from "./graphql/types";
 import * as database from "./db/connector";
 import context from "./context";
 
@@ -13,9 +13,13 @@ const app = express();
 
 database.connect();
 
-const server = new ApolloServer({
+const schema = makeExecutableSchema({
   typeDefs,
   resolvers,
+});
+
+const server = new ApolloServer({
+  schema,
   playground: true,
   context,
 });
