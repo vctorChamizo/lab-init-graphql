@@ -11,6 +11,7 @@ const typeDefs = gql`
     description: String!
     completed: Boolean
     createdAt: DateTime!
+    status: String
   }
 
   # user

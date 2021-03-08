@@ -1,30 +1,11 @@
-import { GraphQLDateTime } from "graphql-iso-date";
+import { merge } from "lodash";
 
-import { addTaskMutation, findTasksQuery, findTaskByIdQuery } from "./task";
-import { findUsersQuery, findUserByIdQuery } from "./user";
-import { signUpMutation, signInMutation } from "./auth";
+import { userResolver } from "./user";
+import { authResolver } from "./auth";
+import { taskResolver } from "./task";
 
-const Query = {
-  // auth
-  signInMutation,
+const resolvers = merge(userResolver, authResolver, taskResolver);
 
-  // task
-  findTasksQuery,
-  findTaskByIdQuery,
-
-  // user
-  findUsersQuery,
-  findUserByIdQuery,
-};
-
-const Mutation = {
-  // auth
-  signUpMutation,
-
-  // task
-  addTaskMutation,
-};
-
-const resolvers = { Query, Mutation, DateTime: GraphQLDateTime };
+console.log(resolvers);
 
 export default resolvers;
