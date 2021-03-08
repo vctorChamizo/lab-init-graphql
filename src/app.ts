@@ -1,11 +1,13 @@
 import express from "express";
 import { ApolloServer, makeExecutableSchema } from "apollo-server-express";
+
 import logger from "@log";
 
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/types";
 import * as database from "./db/connector";
 import context from "./context";
+import formatError from "./errors";
 
 import { API_HOST, PORT, API_URL } from "@constants";
 
@@ -22,6 +24,7 @@ const server = new ApolloServer({
   schema,
   playground: true,
   context,
+  formatError,
 });
 
 server.applyMiddleware({ app, path: API_URL });

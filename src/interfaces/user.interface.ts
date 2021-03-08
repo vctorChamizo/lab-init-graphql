@@ -14,6 +14,13 @@ export interface IUserAuth {
   password: string;
 }
 
+export interface IUserContext {
+  id: string;
+  username: string;
+  email: string;
+  token: string;
+}
+
 export interface IUserModel extends Document {
   id: string;
   username: string;

@@ -29,3 +29,10 @@ export const SALT_ROUNDS: number = Number(process.env.SALT_ROUNDS) || 10;
 
 // JWT
 export const JWT_SECRET: Secret = String(process.env.JWT_SECRET) || "Secret";
+
+// Sentry
+export const SENTRY_DSN: string | undefined = process.env.SENTRY_DSN;
+
+// Errors
+
+export const NO_AUTHORIZATION = "No Authorization supplied";
