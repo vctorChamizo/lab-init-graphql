@@ -6,6 +6,7 @@
   "author": "vctorChamizo <victor.chamizo96@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "tsc -b",
     "build-watch": "tsc -w",
     "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts",
     "lint": "node_modules/.bin/eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix"
