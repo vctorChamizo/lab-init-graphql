@@ -9,6 +9,7 @@
     "build": "tsc -b",
     "build-watch": "tsc -w",
     "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts",
+    "seed": "ts-node ./src/db/seeds/index.ts",
     "lint": "node_modules/.bin/eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix"
   },
   "dependencies": {

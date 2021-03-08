@@ -12,7 +12,7 @@ export const signUpService = async (
   password: string
 ): Promise<IUser> => {
   try {
-    const hashedPassword: string = await encryptPassword(password);
+    const hashedPassword: string = encryptPassword(password);
 
     const user: IUserAuth = {
       username,
