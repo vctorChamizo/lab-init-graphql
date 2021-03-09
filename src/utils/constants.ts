@@ -3,15 +3,16 @@ import { Secret } from "jsonwebtoken";
 
 import { Enviroments } from "@enums";
 
-if (process.env.NODE_ENV === Enviroments.PRODUCTION) {
-  dotenv.config({ path: ".env.production" });
+if (process.env.NODE_ENV === Enviroments.SANDBOX) {
+  dotenv.config({ path: ".env.sandbox" });
 } else if (process.env.NODE_ENV === Enviroments.DEVELOPMENT) {
-  dotenv.config({ path: ".env.development" });
+  dotenv.config({ path: ".env.dev" });
 } else {
   dotenv.config();
 }
 
 // Enviroment
+export const NODE_ENV: string = process.env.NODE_ENV || "sandbox";
 export const API_HOST: string = process.env.API_HOST || "http://localhost";
 export const PORT: number = Number(process.env.PORT) || 4000;
 export const API_URL: string = process.env.API_URL || "/api";

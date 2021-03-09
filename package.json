@@ -12,6 +12,15 @@
     "seed": "ts-node ./src/db/seeds/index.ts",
     "lint": "node_modules/.bin/eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix"
   },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "env": {
+      "NODE_ENV": "sandbox"
+    }
+  },
   "dependencies": {
     "@sentry/node": "^6.2.1",
     "apollo-server": "^2.21.0",
