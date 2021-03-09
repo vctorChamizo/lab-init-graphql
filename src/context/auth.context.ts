@@ -1,15 +1,18 @@
 import { IUser } from "@interfaces";
-import { getUserByToken, findUserByIdService } from "../service";
+import { getUserIdByToken, findUserByIdService } from "../service";
 
 export const authContext = async (token: string): Promise<IUser | null> => {
   if (!token) return null;
 
-  const userJWT = await getUserByToken(token);
-  const { id: userId } = userJWT;
+  const userJWT: IUser | null = await getUserIdByToken(token);
 
-  if (!userId) return null;
+  if (userJWT) {
+    const { id: userId }: { id: string } = userJWT;
 
-  const user: IUser | null = await findUserByIdService(userId);
+    const user: IUser | null = await findUserByIdService(userId);
 
-  return user;
+    return user;
+  }
+
+  return null;
 };

@@ -1,12 +1,14 @@
 import { signUpService } from "../../../service";
 
-export const signUpMutation = async (_: any, args: any) => {
-  const {
+import { IUser } from "@interfaces";
+
+export const signUpMutation = async (
+  _: undefined,
+  {
     username,
     email,
     password,
-  }: { username: string; email: string; password: string } = args;
-  const newUser = await signUpService(username, email, password);
-
-  return newUser;
+  }: { username: string; email: string; password: string }
+): Promise<IUser> => {
+  return await signUpService(username, email, password);
 };

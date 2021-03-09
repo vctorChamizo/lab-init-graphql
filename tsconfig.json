@@ -6,12 +6,20 @@
     "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "outDir": "dist",
+    "outDir": "build",
     "paths": {
-      "@constants": ["utils/constants"],
-      "@enums": ["enums"],
-      "@interfaces": ["interfaces/index"],
-      "@log": ["lib/log"]
+      "@constants": [
+        "utils/constants"
+      ],
+      "@enums": [
+        "enums"
+      ],
+      "@interfaces": [
+        "interfaces/index"
+      ],
+      "@log": [
+        "lib/log"
+      ]
     }
   }
 }

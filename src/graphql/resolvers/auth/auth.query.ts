@@ -1,10 +1,12 @@
 import { signInService } from "../../../service";
 
-export const signInMutation = async (_: any, args: any) => {
-  const {
+export const signInMutation = async (
+  _: undefined,
+  {
     username,
     email,
     password,
-  }: { username: string; email: string; password: string } = args;
+  }: { username: string; email: string; password: string }
+) => {
   return await signInService(username, email, password);
 };

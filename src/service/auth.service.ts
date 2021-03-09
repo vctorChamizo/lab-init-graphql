@@ -2,7 +2,11 @@ import { AuthenticationError } from "apollo-server-express";
 
 import { AuthError } from "@enums";
 import { IUser, IUserAuth } from "@interfaces";
-import { signUpIntegration, signInIntegration } from "../integration";
+import {
+  signUpIntegration,
+  signInIntegration,
+  findUserByIdIntegration,
+} from "../integration";
 import { encryptPassword, comparePassword } from "../lib/hash";
 import { generateJWT, validateJWT } from "../lib/jwt";
 
@@ -60,16 +64,10 @@ export const signInService = async (
   return await generateJWT(user.id);
 };
 
-export const getUserByToken = async (token: string): Promise<IUser> => {
-  await validateJWT(token);
+export const getUserIdByToken = async (
+  token: string
+): Promise<IUser | null> => {
+  const { id }: { id: string } = await validateJWT(token);
 
-  const newUser: IUser = {
-    id: "resultUser.id",
-    username: "resultUser.username",
-    email: "resultUser.email",
-    password: "resultUser.password",
-    token,
-  };
-
-  return await newUser;
+  return await findUserByIdIntegration(id);
 };

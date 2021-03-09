@@ -1,7 +1,8 @@
 import { Request } from "express";
 
-import { IUser, IContext } from "@interfaces";
 import { authContext } from "./auth.context";
+
+import { IUser, IContext, IUserContext } from "@interfaces";
 
 const handleContext = async ({
   req,
@@ -13,9 +14,19 @@ const handleContext = async ({
   const token: string | undefined = req.headers.authorization;
 
   if (token) {
-    const user: IUser | null = await authContext(token);
+    const userSession: IUser | null = await authContext(token);
 
-    context = { ...context, user };
+    const user: IUserContext | null = userSession && {
+      id: userSession?.id,
+      username: userSession?.username,
+      email: userSession?.email,
+      token,
+    };
+
+    context = {
+      ...context,
+      user,
+    };
   }
 
   return context;
