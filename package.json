@@ -21,6 +21,11 @@
       "node_modules/**"
     ]
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lint"
+    }
+  },
   "dependencies": {
     "@sentry/node": "^6.2.1",
     "apollo-server": "^2.21.0",
@@ -52,6 +57,7 @@
     "@typescript-eslint/parser": "^4.16.1",
     "eslint": "^7.21.0",
     "husky": "^5.1.3",
+    "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.2"
