@@ -13,3 +13,8 @@ export enum ApolloCodeError {
   PERSISTED_QUERY_NOT_SUPPORTED = "PERSISTED_QUERY_NOT_SUPPORTED", // A client sent the hash of a query string to execute via automatic persisted queries, but the server has disabled APQ.
   INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
 }
+
+export enum CustomCodeError {
+  DATABASE_ERROR = "DATABASE_ERROR",
+  CONTEXT_ERROR = "CONTEXT_ERROR",
+}

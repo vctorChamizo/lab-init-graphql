@@ -17,9 +17,7 @@ const connect = async (): Promise<void> => {
       `Connected to momngo at ${DB_LOCAL_HOST_MONGODB}${DB_LOCAL_NAME_MONGODB}`
     );
   } catch (error) {
-    logger.error(
-      `Error connecting to mongo database. Error description: ${error}`
-    );
+    logger.error(`Error connecting to mongo database. ${error}`);
   }
 };
 
@@ -31,9 +29,7 @@ const disconnect = async (): Promise<void> => {
 
     logger.info(`Disconnected to momngo successful.`);
   } catch (error) {
-    logger.error(
-      `Error disconnecting to mongo database. Error description: ${error}`
-    );
+    logger.error(`Error disconnecting to mongo database. ${error}`);
   }
 };
 

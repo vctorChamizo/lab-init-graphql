@@ -5,7 +5,7 @@ import { SENTRY_DSN } from "@constants";
 
 sentry.init({ dsn: SENTRY_DSN });
 
-const sentryLauncher = (error: GraphQLError) => {
+const sentryLauncher = (error: GraphQLError): void => {
   sentry.withScope((scope) => {
     const { extensions, path, message } = error;
     if (extensions?.code) {
