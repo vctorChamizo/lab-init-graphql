@@ -7,26 +7,21 @@ import logger from "../../lib/log";
 import { IUser } from "../../interfaces";
 import { UserModel, TaskModel } from "../models";
 
-dotenv.config();
+dotenv.config({ path: ".env.seed" });
 
 const users = require("./data/user");
 const tasks = require("./data/task");
 
 const executeSeeds = async (fn: Function) => {
   try {
-    await mongoose.connect(
-      `${process.env.DB_HOST_MONGODB}${process.env.DB_NAME_MONGODB}`,
-      {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        autoIndex: false,
-      }
-    );
+    await mongoose.connect(`${process.env.DB_HOST_MONGODB}`, {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      autoIndex: false,
+    });
 
-    logger.info(
-      `Connected to momngo at ${process.env.DB_HOST_MONGODB}${process.env.DB_NAME_MONGODB}`
-    );
+    logger.info(`Connected to momngo at ${process.env.DB_HOST_MONGODB}`);
 
     await fn();
   } catch (error) {

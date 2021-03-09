@@ -19,7 +19,6 @@ export const API_URL: string = process.env.API_URL || "/api";
 
 // Database
 export const DB_HOST_MONGODB: string | undefined = process.env.DB_HOST_MONGODB;
-export const DB_NAME_MONGODB: string | undefined = process.env.DB_NAME_MONGODB;
 
 // Password
 export const SALT_ROUNDS: number = Number(process.env.SALT_ROUNDS) || 10;
