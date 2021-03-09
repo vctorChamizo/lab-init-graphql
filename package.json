@@ -21,11 +21,6 @@
       "node_modules/**"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn run lint"
-    }
-  },
   "dependencies": {
     "@sentry/node": "^6.2.1",
     "apollo-server": "^2.21.0",
