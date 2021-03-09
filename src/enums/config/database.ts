@@ -1,9 +1,9 @@
-import { CONNREFUSED } from "dns";
+import { CONNREFUSED } from 'dns'
 
 export enum DatabaseStatus {
   DISCONNECTED = 0,
   CONNECTED = 1,
   CONNECTING = 2,
   DISCONNECTING = 3,
-  INVALID_CREDENTIALS = 4,
+  INVALID_CREDENTIALS = 4
 }

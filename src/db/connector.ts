@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
-import logger from "@log";
+import mongoose from 'mongoose'
+import logger from '@log'
 
-import { DB_HOST_MONGODB } from "@constants";
-import { DatabaseStatus } from "@enums";
+import { DB_HOST_MONGODB } from '@constants'
+import { DatabaseStatus } from '@enums'
 
 const connect = async (): Promise<void> => {
   try {
@@ -10,25 +10,25 @@ const connect = async (): Promise<void> => {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
-      autoIndex: false,
-    });
+      autoIndex: false
+    })
 
-    logger.info(`Connected to momngo at ${DB_HOST_MONGODB}`);
+    logger.info(`Connected to momngo at ${DB_HOST_MONGODB}`)
   } catch (error) {
-    logger.error(`Error connecting to mongo database. ${error}`);
+    logger.error(`Error connecting to mongo database. ${error}`)
   }
-};
+}
 
 const disconnect = async (): Promise<void> => {
-  if (mongoose.connection.readyState !== DatabaseStatus.CONNECTED) return;
+  if (mongoose.connection.readyState !== DatabaseStatus.CONNECTED) return
 
   try {
-    await mongoose.disconnect();
+    await mongoose.disconnect()
 
-    logger.info(`Disconnected to momngo successful.`);
+    logger.info(`Disconnected to momngo successful.`)
   } catch (error) {
-    logger.error(`Error disconnecting to mongo database. ${error}`);
+    logger.error(`Error disconnecting to mongo database. ${error}`)
   }
-};
+}
 
-export { connect, disconnect };
+export { connect, disconnect }

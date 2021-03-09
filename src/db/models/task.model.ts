@@ -1,25 +1,25 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose'
 
-import { ITaskModel } from "@interfaces";
+import { ITaskModel } from '@interfaces'
 
 const TaskSchema = new Schema(
   {
     name: {
       type: String,
-      reqired: true,
+      reqired: true
     },
     description: {
       type: String,
-      reqired: true,
+      reqired: true
     },
     completed: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
-);
+)
 
-export const TaskModel = model<ITaskModel>("Task", TaskSchema);
+export const TaskModel = model<ITaskModel>('Task', TaskSchema)

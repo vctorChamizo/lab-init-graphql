@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express'
 
 const authTypeDef = gql`
   extend type Query {
@@ -8,6 +8,6 @@ const authTypeDef = gql`
   extend type Mutation {
     signUpMutation(username: String!, email: String!, password: String!): User
   }
-`;
+`
 
-export default authTypeDef;
+export default authTypeDef

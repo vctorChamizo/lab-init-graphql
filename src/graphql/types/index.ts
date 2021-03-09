@@ -1,8 +1,8 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express'
 
-import taskTypeDef from "./task.type";
-import authTypeDef from "./auth.type";
-import userTypeDef from "./user.type";
+import taskTypeDef from './task.type'
+import authTypeDef from './auth.type'
+import userTypeDef from './user.type'
 
 const generalTypeDef = gql`
   # custom scalar type
@@ -17,8 +17,8 @@ const generalTypeDef = gql`
   type Mutation {
     statusMutation(username: String!): String!
   }
-`;
+`
 
-const typeDefs = [authTypeDef, userTypeDef, taskTypeDef, generalTypeDef];
+const typeDefs = [authTypeDef, userTypeDef, taskTypeDef, generalTypeDef]
 
-export default typeDefs;
+export default typeDefs

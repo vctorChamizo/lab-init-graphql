@@ -1,7 +1,7 @@
-import { IResolvers } from "apollo-server-express";
+import { IResolvers } from 'apollo-server-express'
 
-import { findUsersQuery, findUserByIdQuery } from "./user.query";
+import { findUsersQuery, findUserByIdQuery } from './user.query'
 
 export const userResolver: IResolvers = {
-  Query: { findUsersQuery, findUserByIdQuery },
-};
+  Query: { findUsersQuery, findUserByIdQuery }
+}

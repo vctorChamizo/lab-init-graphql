@@ -1,35 +1,35 @@
-import { Request } from "express";
+import { Request } from 'express'
 
-import { authContext } from "./auth.context";
+import { authContext } from './auth.context'
 
-import { IUser, IContext, IUserContext } from "@interfaces";
+import { IUser, IContext, IUserContext } from '@interfaces'
 
 const handleContext = async ({
-  req,
+  req
 }: {
-  req: Request;
+  req: Request
 }): Promise<IContext | unknown> => {
-  let context = {};
+  let context = {}
 
-  const token: string | undefined = req.headers.authorization;
+  const token: string | undefined = req.headers.authorization
 
   if (token) {
-    const userSession: IUser | null = await authContext(token);
+    const userSession: IUser | null = await authContext(token)
 
     const user: IUserContext | null = userSession && {
       id: userSession?.id,
       username: userSession?.username,
       email: userSession?.email,
-      token,
-    };
+      token
+    }
 
     context = {
       ...context,
-      user,
-    };
+      user
+    }
   }
 
-  return context;
-};
+  return context
+}
 
-export default handleContext;
+export default handleContext

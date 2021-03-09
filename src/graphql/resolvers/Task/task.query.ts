@@ -1,9 +1,9 @@
-import { AuthenticationError } from "apollo-server-express";
+import { AuthenticationError } from 'apollo-server-express'
 
-import { findTaskByIdService, findTasksService } from "../../../service";
+import { findTaskByIdService, findTasksService } from '../../../service'
 
-import { ITask, IUserContext } from "@interfaces";
-import { NO_AUTHORIZATION } from "@constants";
+import { ITask, IUserContext } from '@interfaces'
+import { NO_AUTHORIZATION } from '@constants'
 
 export const findTasksQuery = async (
   _: undefined,
@@ -11,12 +11,12 @@ export const findTasksQuery = async (
   { user }: { user: IUserContext }
 ): Promise<ITask[]> => {
   try {
-    if (!user) throw new AuthenticationError(NO_AUTHORIZATION);
-    return await findTasksService();
+    if (!user) throw new AuthenticationError(NO_AUTHORIZATION)
+    return await findTasksService()
   } catch (error) {
-    throw error;
+    throw error
   }
-};
+}
 
 export const findTaskByIdQuery = async (
   _: any,
@@ -24,9 +24,9 @@ export const findTaskByIdQuery = async (
   { user }: { user: IUserContext }
 ): Promise<ITask | null> => {
   try {
-    if (!user) throw new AuthenticationError(NO_AUTHORIZATION);
-    return await findTaskByIdService(id);
+    if (!user) throw new AuthenticationError(NO_AUTHORIZATION)
+    return await findTaskByIdService(id)
   } catch (error) {
-    throw error;
+    throw error
   }
-};
+}

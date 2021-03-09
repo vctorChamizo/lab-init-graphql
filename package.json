@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc -b",
     "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts",
-    "lint": "node_modules/.bin/eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix",
+    "format": "prettier --write ./src/**/*.ts",
+    "lint": "eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix",
     "seed": "ts-node ./src/db/seeds/index.ts",
     "doc": "typedoc src/**"
   },

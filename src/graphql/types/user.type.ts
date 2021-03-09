@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express'
 
 const userTypeDef = gql`
   type User {
@@ -13,6 +13,6 @@ const userTypeDef = gql`
     findUsersQuery: [User!]!
     findUserByIdQuery(id: ID!): User
   }
-`;
+`
 
-export default userTypeDef;
+export default userTypeDef

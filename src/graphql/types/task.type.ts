@@ -1,4 +1,4 @@
-import { gql } from "apollo-server-express";
+import { gql } from 'apollo-server-express'
 
 const taskTypeDef = gql`
   type Task {
@@ -22,6 +22,6 @@ const taskTypeDef = gql`
       completed: Boolean
     ): Task!
   }
-`;
+`
 
-export default taskTypeDef;
+export default taskTypeDef

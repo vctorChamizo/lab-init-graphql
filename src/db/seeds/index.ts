@@ -1,16 +1,16 @@
-import { MongoError } from "mongodb";
-import mongoose, { Model } from "mongoose";
-import dotenv from "dotenv";
-import bcrypt from "bcrypt";
+import { MongoError } from 'mongodb'
+import mongoose, { Model } from 'mongoose'
+import dotenv from 'dotenv'
+import bcrypt from 'bcrypt'
 
-import logger from "../../lib/log";
-import { IUser } from "../../interfaces";
-import { UserModel, TaskModel } from "../models";
+import logger from '../../lib/log'
+import { IUser } from '../../interfaces'
+import { UserModel, TaskModel } from '../models'
 
-dotenv.config({ path: ".env.seed" });
+dotenv.config({ path: '.env.seed' })
 
-const users = require("./data/user");
-const tasks = require("./data/task");
+const users = require('./data/user')
+const tasks = require('./data/task')
 
 const executeSeeds = async (fn: Function) => {
   try {
@@ -18,51 +18,51 @@ const executeSeeds = async (fn: Function) => {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
-      autoIndex: false,
-    });
+      autoIndex: false
+    })
 
-    logger.info(`Connected to momngo at ${process.env.DB_HOST_MONGODB}`);
+    logger.info(`Connected to momngo at ${process.env.DB_HOST_MONGODB}`)
 
-    await fn();
+    await fn()
   } catch (error) {
     logger.error(
       `Error connecting to mongo database. Error description: ${error}`
-    );
+    )
   } finally {
-    await mongoose.disconnect();
+    await mongoose.disconnect()
 
-    logger.info(`Disconnected to momngo successful.`);
+    logger.info(`Disconnected to momngo successful.`)
   }
-};
+}
 
 const dropIfExists = async (model: Model<any>) => {
   try {
-    await model.collection.drop();
+    await model.collection.drop()
   } catch (error) {
     if (error instanceof MongoError)
       logger.warn(
         `Cannot drop collection ${model.collection.name}, because does not exist in database.`
-      );
-    else throw error;
+      )
+    else throw error
   }
-};
+}
 
 const hashUsers = (users: IUser[]) => {
   return users.map((element) => {
     const hashedPassword = bcrypt.hashSync(
       element.password,
       Number(process.env.SALT_ROUNDS)
-    );
+    )
 
-    element.password = hashedPassword;
-    return element;
-  });
-};
+    element.password = hashedPassword
+    return element
+  })
+}
 
 executeSeeds(async () => {
-  await dropIfExists(UserModel);
-  await UserModel.create(hashUsers(users));
+  await dropIfExists(UserModel)
+  await UserModel.create(hashUsers(users))
 
-  await dropIfExists(TaskModel);
-  await TaskModel.create(tasks);
-});
+  await dropIfExists(TaskModel)
+  await TaskModel.create(tasks)
+})
