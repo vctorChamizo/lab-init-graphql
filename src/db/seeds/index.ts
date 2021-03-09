@@ -15,7 +15,7 @@ const tasks = require("./data/task");
 const executeSeeds = async (fn: Function) => {
   try {
     await mongoose.connect(
-      `${process.env.DB_LOCAL_HOST_MONGODB}${process.env.DB_LOCAL_NAME_MONGODB}`,
+      `${process.env.DB_HOST_MONGODB}${process.env.DB_NAME_MONGODB}`,
       {
         useUnifiedTopology: true,
         useNewUrlParser: true,
@@ -25,7 +25,7 @@ const executeSeeds = async (fn: Function) => {
     );
 
     logger.info(
-      `Connected to momngo at ${process.env.DB_LOCAL_HOST_MONGODB}${process.env.DB_LOCAL_NAME_MONGODB}`
+      `Connected to momngo at ${process.env.DB_HOST_MONGODB}${process.env.DB_NAME_MONGODB}`
     );
 
     await fn();

@@ -1,4 +1,5 @@
 import express from "express";
+import helmet from "helmet";
 import { ApolloServer, makeExecutableSchema } from "apollo-server-express";
 
 import resolvers from "./graphql/resolvers";
@@ -13,6 +14,8 @@ import { Enviroments } from "@enums";
 
 const app = express();
 
+app.use(helmet());
+
 database.connect();
 
 const schema = makeExecutableSchema({
@@ -20,12 +23,6 @@ const schema = makeExecutableSchema({
   resolvers,
 });
 
-/**
- * Represents a book.
- * @constructor
- * @param {string} title - The title of the book.
- * @param {string} author - The author of the book.
- */
 const server = new ApolloServer({
   schema,
   playground: true,

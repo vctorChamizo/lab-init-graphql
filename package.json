@@ -7,20 +7,19 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -b",
-    "build-watch": "tsc -w",
-    "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts",
-    "seed": "ts-node ./src/db/seeds/index.ts",
+    "dev": "nodemon --watch src --exec ts-node-dev -r tsconfig-paths/register src/app.ts",
     "lint": "node_modules/.bin/eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix",
+    "seed": "ts-node ./src/db/seeds/index.ts",
     "doc": "typedoc src/**"
   },
   "nodemonConfig": {
     "restartable": "rs",
-    "ignore": [
-      "node_modules/**"
-    ],
     "env": {
       "NODE_ENV": "sandbox"
-    }
+    },
+    "ignore": [
+      "node_modules/**"
+    ]
   },
   "dependencies": {
     "@sentry/node": "^6.2.1",
@@ -32,6 +31,7 @@
     "graphql": "^15.5.0",
     "graphql-iso-date": "^3.6.1",
     "graphql-middleware-sentry": "^3.2.1",
+    "helmet": "^4.4.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongoose": "^5.11.18",

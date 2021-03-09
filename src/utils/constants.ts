@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === Enviroments.SANDBOX) {
   dotenv.config({ path: ".env.sandbox" });
 } else if (process.env.NODE_ENV === Enviroments.DEVELOPMENT) {
   dotenv.config({ path: ".env.dev" });
-} else {
+} else if (process.env.NODE_ENV === Enviroments.PRODUCTION) {
   dotenv.config();
 }
 
@@ -18,12 +18,8 @@ export const PORT: number = Number(process.env.PORT) || 4000;
 export const API_URL: string = process.env.API_URL || "/api";
 
 // Database
-export const DB_LOCAL_HOST_MONGODB: string | undefined =
-  process.env.DB_LOCAL_HOST_MONGODB;
-export const DB_LOCAL_NAME_MONGODB: string | undefined =
-  process.env.DB_LOCAL_NAME_MONGODB;
-export const DB_REMOTE_HOST_MONGODB: string | undefined =
-  process.env.DB_REMOTE_HOST_MONGODB;
+export const DB_HOST_MONGODB: string | undefined = process.env.DB_HOST_MONGODB;
+export const DB_NAME_MONGODB: string | undefined = process.env.DB_NAME_MONGODB;
 
 // Password
 export const SALT_ROUNDS: number = Number(process.env.SALT_ROUNDS) || 10;
