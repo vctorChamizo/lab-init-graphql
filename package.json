@@ -11,7 +11,7 @@
     "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts",
     "seed": "ts-node ./src/db/seeds/index.ts",
     "lint": "node_modules/.bin/eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix",
-    "prepare": "husky install"
+    "doc": "typedoc src/**"
   },
   "nodemonConfig": {
     "restartable": "rs",
@@ -36,7 +36,8 @@
     "lodash": "^4.17.21",
     "mongoose": "^5.11.18",
     "pino": "^6.11.1",
-    "pino-pretty": "^4.6.0"
+    "pino-pretty": "^4.6.0",
+    "typedoc": "^0.20.30"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
