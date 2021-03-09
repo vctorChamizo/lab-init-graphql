@@ -1,0 +1,27 @@
+[
+  {
+    "username": "BeeBoop1",
+    "email": "obot1@example.com",
+    "password": "123"
+  },
+  {
+    "username": "BeeBoop2",
+    "email": "obot2@example.com",
+    "password": "123"
+  },
+  {
+    "username": "BeeBoop3",
+    "email": "obot3@example.com",
+    "password": "123"
+  },
+  {
+    "username": "BeeBoop4",
+    "email": "obot4@example.com",
+    "password": "123"
+  },
+  {
+    "username": "BeeBoop5",
+    "email": "obot5@example.com",
+    "password": "123"
+  }
+]
