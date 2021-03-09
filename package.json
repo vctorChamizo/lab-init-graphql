@@ -10,7 +10,8 @@
     "build-watch": "tsc -w",
     "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts",
     "seed": "ts-node ./src/db/seeds/index.ts",
-    "lint": "node_modules/.bin/eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix"
+    "lint": "node_modules/.bin/eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix",
+    "prepare": "husky install"
   },
   "nodemonConfig": {
     "restartable": "rs",
@@ -49,6 +50,7 @@
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "eslint": "^7.21.0",
+    "husky": "^5.1.3",
     "ts-node": "^9.1.1",
     "ts-node-dev": "^1.1.6",
     "tsconfig-paths": "^3.9.0",
