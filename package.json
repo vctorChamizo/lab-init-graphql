@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -b",
-    "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/app.ts",
+    "dev": "nodemon --watch src --exec ts-node -r tsconfig-paths/register src/server.ts",
     "format": "prettier --write './src/**/*.ts'",
     "lint": "eslint --ext ./src/**/*.ts --ignore-pattern node_modules/ --fix",
     "seed": "ts-node ./src/db/seeds/index.ts",
